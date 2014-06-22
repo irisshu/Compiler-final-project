@@ -2137,7 +2137,7 @@ yyreduce:
   case 116:
 /* Line 1787 of yacc.c  */
 #line 471 "parse.y"
-    { /* $$ = make_if_stmt($2, $4, $5); */ }
+    {  (yyval.stmt_) = make_if_stmt((yyvsp[(2) - (5)].expr_), (yyvsp[(4) - (5)].stmt_), (yyvsp[(5) - (5)].stmt_));  }
     break;
 
   case 117:

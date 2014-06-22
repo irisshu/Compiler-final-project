@@ -279,7 +279,7 @@ STMTWHILE *make_stmtwhile (EXPR *test, STMT *body)
   return w;
 }
 
-/*
+
 //Iris add (Feature 7)
 STMTIF *make_stmtif (EXPR *test, STMT *body, STMT *elses)
 {
@@ -289,7 +289,7 @@ STMTIF *make_stmtif (EXPR *test, STMT *body, STMT *elses)
   i->if_else = elses; //Stmt 
   return i;
 }
-*/
+
 
 /* specific STMT constructors */
 
@@ -308,7 +308,7 @@ STMT *make_compound_stmt (STMTLIST *sl)
   return s;
 }
 
-/*
+
 // Iris add (Feature 7)
 STMT *make_if_stmt (EXPR *test, STMT *body, STMT *elses)
 {
@@ -316,7 +316,7 @@ STMT *make_if_stmt (EXPR *test, STMT *body, STMT *elses)
   s->s.ifx = make_stmtif (test, body, elses);
   return s;
 }
-*/
+
 
 STMT *make_call_stmt (EXPR *e)
 {

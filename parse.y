@@ -468,7 +468,7 @@ IfStatement
           Feature 7
           Implement the function in astree.c to handle this production.
         */
-          { /* $$ = make_if_stmt($2, $4, $5); */ } //Iris add
+          {  $$ = make_if_stmt($2, $4, $5);  } //Iris add
         ;
 
 OptElse
