@@ -5,12 +5,13 @@ extern BLOCK    *make_block    (DECLLIST *dl, STMTLIST *s);
 
 /* DECL routines */
 
-extern DECLLIST *make_decllist (DECL *d, DECLLIST *dl);
-extern DECL     *make_decl     (DECLKIND k, IDENT *id);
+extern DECLLIST    *make_decllist (DECL *d, DECLLIST *dl);
+extern DECL        *make_decl     (DECLKIND k, IDENT *id);
 extern VARDEF      *make_vardef (TYPE *t);
 extern FORMAL      *make_formal (MODEWHICH m, TYPE *t);
 extern PROCFUNCDEF *make_procfundef (DECLLIST *dl, TYPE *t, BLOCK *b); //Iris add (Feature 5)
-
+extern FIELD       *make_field (IDENT *id, TYPE *t); //Iris add (F4)
+extern FIELDLIST   *make_fieldlist (FIELD *f, FIELDLIST *fl); //Iris add (F4)
 
 extern DECL   *make_program_decl  (IDENT *id);
 extern DECL   *make_var_decl      (IDENT *id, TYPE *t);
