@@ -2215,7 +2215,7 @@ yyreduce:
   case 129:
 /* Line 1787 of yacc.c  */
 #line 550 "parse.y"
-    { }
+    { (yyval.stmt_) = make_repeatstmt ((yyvsp[(4) - (4)].expr_), (yyvsp[(2) - (4)].stmtlist_)); }
     break;
 
   case 130:

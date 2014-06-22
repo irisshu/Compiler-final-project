@@ -308,6 +308,15 @@ STMTWHILE *make_stmtwhile (EXPR *test, STMT *body)
   return w;
 }
 
+//Iris add (Feature 9)
+STMTREPEAT *make_stmtrepeat (EXPR *test, STMTLIST *body)
+{
+  STMTREPEAT *r = anew (STMTREPEAT);
+  r->rpt_expr = test;
+  r->rpt_stmts = body;
+  return r;
+}
+
 
 //Iris add (Feature 7)
 STMTIF *make_stmtif (EXPR *test, STMT *body, STMT *elses)
@@ -366,6 +375,14 @@ STMT *make_whilestmt (EXPR *test, STMT *body)
 {
   STMT *s = make_stmt (StmtWhile_);
   s->s.wh = make_stmtwhile (test, body);
+  return s;	
+}
+
+//Iris add (Feature 9)
+STMT *make_repeatstmt (EXPR *test, STMTLIST *body)
+{
+  STMT *s = make_stmt (StmtRepeat_);
+  s->s.rpt = make_stmtrepeat (test, body);
   return s;	
 }
 

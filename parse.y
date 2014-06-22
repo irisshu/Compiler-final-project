@@ -547,7 +547,7 @@ RepeatStatement
           Fill the following rule action and implement the function in astree.c 
           if you need.
         */
-         { }
+         { $$ = make_repeatstmt ($4, $2); } //Iris add
         ;
 
 ForStatement
