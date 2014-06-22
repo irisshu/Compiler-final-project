@@ -284,12 +284,16 @@ STMTASSIGN *make_stmtassign (EXPR *v, EXPR *e)
 }
 
 //Iris add [Feature 6 (continue)]
-STMTLIST *make_stmtlist (STMT *s, STMTLIST *sli)
+STMTLIST *make_stmtlist (STMT *s, STMTLIST *sl)
 {
-  STMTLIST *sl = anew (STMTLIST);
-  sl->this  = s;
-  sl->rest = sli;
-  return sl;
+  if (s == 0) //Iris: if s also equal to 0, then return sl(=0) exactly.
+	return sl;
+  else{ //Iris: if s doesn't equal to 0, then new the STMTLIST.
+    STMTLIST *new = anew (STMTLIST);
+    new->this  = s;
+    new->rest = sl;
+    return new;
+  }  
 }
 
 STMTCASE *make_stmtcase (EXPR *expr, CASELIST *list)
