@@ -46,16 +46,19 @@ extern STMTCASE   *make_stmtcase   (EXPR *expr, CASELIST *list);
 extern STMTLIST   *make_stmtlist   (STMT *s, STMTLIST *sli); //Iris add (F6)
 extern STMTIF     *make_stmtif     (EXPR *test, STMT *body, STMT *elses); //Iris add (F7)
 extern STMTREPEAT *make_stmtrepeat (EXPR *test, STMTLIST *body); //Iris add (F9)
+extern STMTFOR    *make_stmtfor    (BINDING *b, EXPR *test, int op, EXPR *test2, STMT *body); //Iris add (F10)
 
 /* statement constructor functions */
 
 extern STMT *make_assign_stmt  (EXPR *v, EXPR *e);
 extern STMT *make_whilestmt    (EXPR *test, STMT *body);
 extern STMT *make_repeatstmt   (EXPR *test, STMTLIST *body); //Iris add (F9)
+extern STMT *make_forstmt      (IDENT *id, EXPR *test, int op, EXPR *test2, STMT *body); //Iris add (F10)
 extern STMT *make_call_stmt    (EXPR *e);
 extern STMT *make_compound_stmt(STMTLIST *sl); //Iris add (F6)
 extern STMT *make_if_stmt      (EXPR *test, STMT *body, STMT *elses); //Iris add (F7)
 extern STMT *make_case_stmt    (EXPR *test, CASELIST *cl); //Iris add (F8)
+
 
 /* general functions */
 

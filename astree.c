@@ -332,6 +332,19 @@ STMTIF *make_stmtif (EXPR *test, STMT *body, STMT *elses)
   return i;
 }
 
+//Iris add (Feature 10)
+STMTFOR *make_stmtfor (BINDING *b, EXPR *test, int op, EXPR *test2, STMT *body)
+{
+	STMTFOR *f = anew (STMTFOR);
+	f->for_name =  b; //Binding
+	f->for_init = test; //Expr
+	f->for_to = test2; //Expr
+	f->for_limit_obj = 0; //Object
+	f->for_stmt = body; //Stmt
+	f->for_upward = op; //enum Boolean 
+	return f;
+}
+
 
 /* specific STMT constructors */
 
@@ -387,6 +400,14 @@ STMT *make_repeatstmt (EXPR *test, STMTLIST *body)
 {
   STMT *s = make_stmt (StmtRepeat_);
   s->s.rpt = make_stmtrepeat (test, body);
+  return s;	
+}
+
+//Iris add (Feature 10)
+STMT *make_forstmt (IDENT *id, EXPR *test, int op, EXPR *test2, STMT *body)
+{
+  STMT *s = make_stmt (StmtFor_);
+  s->s.forx = make_stmtfor (make_binding (id), test, op, test2, body);
   return s;	
 }
 

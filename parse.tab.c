@@ -2221,7 +2221,7 @@ yyreduce:
   case 130:
 /* Line 1787 of yacc.c  */
 #line 561 "parse.y"
-    { }
+    { (yyval.stmt_) = make_forstmt ((yyvsp[(2) - (8)].id), (yyvsp[(4) - (8)].expr_), (yyvsp[(5) - (8)].ival), (yyvsp[(6) - (8)].expr_), (yyvsp[(8) - (8)].stmt_));}
     break;
 
 
