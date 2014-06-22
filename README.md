@@ -7,7 +7,8 @@ NCU-Compiler-final-project
 Compiler Final Project
 
 In this final project, we give you an incomplete mini-pascal compiler (mpc) with incomplete source code. The files of this project are put in your home directory in your account. The provided source code, although with missing features, can still be compiled successfully. 
-In your home directory, a complete mpc called “standard_mpc” is provided for your reference. You can run this program with some *.pas to test the results. If your implementation is correct, your program should behave the same as “standard_mpc”. HOWEVER, “standard_mpc” cannot generate x86 assembly code. If you manage to implement code generation, please verify your assembly code by simply running it.
+In your home directory, a complete mpc called “standard_mpc” is provided for your reference. You can run this program with some *.pas to test the results. If your implementation is correct, your program should behave the same as “standard_mpc”. 
+HOWEVER, “standard_mpc” cannot generate x86 assembly code. If you manage to implement code generation, please verify your assembly code by simply running it.
 
 Your tasks are to
 1.	Read the language specifications about mini-pascal.
