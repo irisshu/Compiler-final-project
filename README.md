@@ -11,17 +11,26 @@ In your home directory, a complete mpc called “standard_mpc” is provided for
 HOWEVER, “standard_mpc” cannot generate x86 assembly code. If you manage to implement code generation, please verify your assembly code by simply running it.
 
 Your tasks are to
+
 1.	Read the language specifications about mini-pascal.
+	
 2.	Read the mini-pascal examples in the language specification documents.
+	
 3.	Test the *.pas with standard_mpc 
+	
 4.	Trace the parse.y with the YACC knowledge you learned from the lab classes.
+	
 5.	The parse.y of mpc basically is to build an AST tree when parsing is done. So, you need to understand how it is done by tracing 
+	
     	Read the %union section in parse.y. This is where an AST node is defined.
     	In %union, there are many typedefs. Trace “structs.h” for your interested typedefs.
     	Read the AST building node function defined in astree.h/astree.c
-6.	Once you have understood the AST data structure in mpc. It is a good exercise to trace main() in mpc.c. A very good entry point      is from print_ast() in mpc.c at line starting from 110. This procedure visits the AST tree as told in the classes. It is crucial     to understand print_ast() if you want to complete this project.
-7.	While tracing the code, you can see a lot of places in the code (parse.y or *.c) are gone and replaced by a comment. These are       the places you should complete one by one.
-8.	The lexical analyzer of mini-pascal compiler (mpc) is implemented in c language (scan.h / scan.c), so you will not find *.l file     in mpc.
+
+6.	Once you have understood the AST data structure in mpc. It is a good exercise to trace main() in mpc.c. A very good entry point is from print_ast() in mpc.c at line starting from 110. This procedure visits the AST tree as told in the classes. It is crucial to understand print_ast() if you want to complete this project.
+
+7.	While tracing the code, you can see a lot of places in the code (parse.y or *.c) are gone and replaced by a comment. These are the places you should complete one by one.
+
+8.	The lexical analyzer of mini-pascal compiler (mpc) is implemented in c language (scan.h / scan.c), so you will not find *.l file in mpc.
 
 The yacc parser of mini-pascal compiler (mpc) is implemented in parse.y. To execute commands sequentially, we can write a shell script or Makefile. We have installed make tool and put the Makefile in your project directory, so you don't have to write a shell script to compile mpc.
 
