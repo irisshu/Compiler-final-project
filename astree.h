@@ -51,12 +51,15 @@ extern STMT *make_assign_stmt  (EXPR *v, EXPR *e);
 extern STMT *make_whilestmt    (EXPR *test, STMT *body);
 extern STMT *make_call_stmt    (EXPR *e);
 extern STMT *make_compound_stmt(STMTLIST *sl); //Iris add (F6)
-extern STMT *make_if_stmt (EXPR *test, STMT *body, STMT *elses); //Iris add (F7)
+extern STMT *make_if_stmt      (EXPR *test, STMT *body, STMT *elses); //Iris add (F7)
+extern STMT *make_case_stmt    (EXPR *test, CASELIST *cl); //Iris add (F8)
 
 /* general functions */
 
 extern EXPR     *make_expr     (EXPRKIND k);
 extern EXPRLIST *make_exprlist (EXPR *e, EXPRLIST *el);
+extern CASEARM  *make_casearm  (EXPRLIST *el, STMT *s); //Iris add(F8)
+extern CASELIST *make_caselist (CASEARM *ca, CASELIST *cl); //Iris add(F8)
 
 /* helper functions */
 

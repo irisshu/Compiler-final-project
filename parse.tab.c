@@ -568,8 +568,8 @@ static const yytype_uint16 yyrline[] =
      399,   399,   399,   399,   403,   404,   406,   411,   411,   411,
      415,   416,   421,   421,   421,   421,   425,   426,   428,   430,
      432,   434,   436,   441,   451,   457,   466,   476,   477,   482,
-     492,   508,   509,   511,   521,   523,   528,   530,   535,   540,
-     550,   561,   561
+     493,   510,   511,   513,   523,   525,   532,   534,   539,   544,
+     554,   565,   565
 };
 #endif
 
@@ -2155,72 +2155,72 @@ yyreduce:
   case 119:
 /* Line 1787 of yacc.c  */
 #line 488 "parse.y"
-    { }
+    { (yyval.stmt_) = make_case_stmt((yyvsp[(2) - (5)].expr_), (yyvsp[(4) - (5)].caselist_));}
     break;
 
   case 120:
 /* Line 1787 of yacc.c  */
-#line 498 "parse.y"
-    { }
+#line 499 "parse.y"
+    { (yyval.caselist_) = make_caselist ((yyvsp[(1) - (2)].casearm_), (yyvsp[(2) - (2)].caselist_));  }
     break;
 
   case 121:
 /* Line 1787 of yacc.c  */
-#line 508 "parse.y"
-    { }
+#line 510 "parse.y"
+    { (yyval.caselist_) = 0; }
     break;
 
   case 122:
 /* Line 1787 of yacc.c  */
-#line 510 "parse.y"
-    { }
+#line 512 "parse.y"
+    { (yyval.caselist_) = 0; }
     break;
 
   case 123:
 /* Line 1787 of yacc.c  */
-#line 512 "parse.y"
-    { }
+#line 514 "parse.y"
+    { (yyval.caselist_) = (yyvsp[(2) - (2)].caselist_); }
     break;
 
   case 124:
 /* Line 1787 of yacc.c  */
-#line 522 "parse.y"
-    { }
+#line 524 "parse.y"
+    { (yyval.casearm_) = make_casearm((yyvsp[(1) - (3)].exprlist_), (yyvsp[(3) - (3)].stmt_)); }
     break;
 
   case 125:
 /* Line 1787 of yacc.c  */
-#line 524 "parse.y"
-    { }
+#line 526 "parse.y"
+    { (yyval.casearm_) = 0; }
     break;
 
   case 126:
 /* Line 1787 of yacc.c  */
-#line 529 "parse.y"
+#line 533 "parse.y"
     { (yyval.exprlist_) = make_exprlist ((yyvsp[(1) - (1)].expr_),  0); }
     break;
 
   case 127:
 /* Line 1787 of yacc.c  */
-#line 531 "parse.y"
+#line 535 "parse.y"
     { (yyval.exprlist_) = make_exprlist ((yyvsp[(1) - (3)].expr_), (yyvsp[(3) - (3)].exprlist_)); }
     break;
 
   case 128:
 /* Line 1787 of yacc.c  */
-#line 536 "parse.y"
+#line 540 "parse.y"
     { (yyval.stmt_) = make_whilestmt ((yyvsp[(2) - (4)].expr_), (yyvsp[(4) - (4)].stmt_)); }
     break;
 
   case 129:
 /* Line 1787 of yacc.c  */
-#line 546 "parse.y"
+#line 550 "parse.y"
     { }
     break;
 
   case 130:
 /* Line 1787 of yacc.c  */
-#line 557 "parse.y"
+#line 561 "parse.y"
     { }
     break;
 
@@ -2458,7 +2458,7 @@ yyreturn:
 
 
 /* Line 2050 of yacc.c  */
-#line 595 "parse.y"
+#line 599 "parse.y"
 
 
 void

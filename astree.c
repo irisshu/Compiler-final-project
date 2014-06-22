@@ -55,6 +55,35 @@ DECLLIST *make_decllist (DECL *d, DECLLIST *dl)
   }
 }
 
+//Iris add start. (Feature 8)
+/**********************************************************************/
+/*                       General CASE constructors                    */
+/**********************************************************************/
+
+CASEARM *make_casearm (EXPRLIST *el, STMT *s)
+{
+  CASEARM *ca = anew (CASEARM);
+
+  /* set tag, id, and lineno always */
+  ca->arm_labels  = el;
+  ca->arm_stmt    = s;  
+  return ca;
+}
+
+CASELIST *make_caselist (CASEARM *ca, CASELIST *cl)
+{
+  if (ca == 0)
+    return cl;
+  else {
+    CASELIST *new = (CASELIST *) anew (CASELIST);
+    new->this = ca;
+    new->rest = cl;
+    return new;
+  }
+}
+//Iris add end. (Feature 8)
+
+
 /* DECL helper constructors */
 
 VARDEF *make_vardef (TYPE *t)
@@ -314,6 +343,14 @@ STMT *make_if_stmt (EXPR *test, STMT *body, STMT *elses)
 {
   STMT *s = make_stmt (StmtIf_);
   s->s.ifx = make_stmtif (test, body, elses);
+  return s;
+}
+
+// Iris add (Feature 8)
+STMT *make_case_stmt (EXPR *test, CASELIST *cl)
+{
+  STMT *s = make_stmt (StmtCase_);
+  s->s.cas = make_stmtcase (test, cl);
   return s;
 }
 

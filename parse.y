@@ -485,8 +485,9 @@ CaseStatement
           Fill the following rule action and implement the function if you need
           in astree.c to handle this production.
         */
-          { }
+          { $$ = make_case_stmt($2, $4);} //Iris add
         ;
+		//Iris: CaseStatement's type is stmt_ .
 
 CaseListElements
         : CaseListElement OptCaseListElements
@@ -495,9 +496,10 @@ CaseListElements
           Fill the following rule action and implement the function in astree.c 
           if you need.
         */
-          { } 
+          { $$ = make_caselist ($1, $2);  } //Iris add
         ;
-
+		// Iris: CaseListElements' type is caselist_ .
+		
 OptCaseListElements
         /*
           Feature 8 (continue)
@@ -505,11 +507,11 @@ OptCaseListElements
           if you need.
         */
         :
-          { }
+          { $$ = 0; } //Iris add
         | ';'
-          { }
+          { $$ = 0; } //Iris add
         | ';' CaseListElements
-          { }
+          { $$ = $2; } //Iris add
         ;
 
 CaseListElement
@@ -519,11 +521,13 @@ CaseListElement
           if you need.
         */
         : CaseLabelList ':' Statement
-          { }
+          { $$ = make_casearm($1, $3); } //Iris add
         | error
-          { }
+          { $$ = 0; }
         ;
-
+		//Iris: CaseListElement's type is casearm_ .
+		//Iris: CaseLabelList's type is EXPRLIST .
+		
 CaseLabelList
         : Constant
           { $$ = make_exprlist ($1,  0); }
