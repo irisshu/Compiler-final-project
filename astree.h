@@ -41,7 +41,6 @@ extern STMTASSIGN *make_stmtassign (EXPR *v, EXPR *e);
 extern STMTWHILE  *make_stmtwhile  (EXPR *test, STMT *body);
 extern STMTCASE   *make_stmtcase   (EXPR *expr, CASELIST *list);
 extern STMTLIST   *make_stmtlist   (STMT *s, STMTLIST *sli); //Iris add (F6)
-// 
 
 //extern STMTIF     *make_stmtif     (EXPR *test, STMT *body, STMT *elses); //Iris add (F7)
 
