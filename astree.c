@@ -333,7 +333,7 @@ STMTIF *make_stmtif (EXPR *test, STMT *body, STMT *elses)
 }
 
 //Iris add (Feature 10)
-STMTFOR *make_stmtfor (BINDING *b, EXPR *test, int op, EXPR *test2, STMT *body)
+STMTFOR *make_stmtfor (BINDING *b, EXPR *test, BOOLEAN up, EXPR *test2, STMT *body)
 {
 	STMTFOR *f = anew (STMTFOR);
 	f->for_name =  b; //Binding
@@ -341,7 +341,7 @@ STMTFOR *make_stmtfor (BINDING *b, EXPR *test, int op, EXPR *test2, STMT *body)
 	f->for_to = test2; //Expr
 	f->for_limit_obj = 0; //Object
 	f->for_stmt = body; //Stmt
-	f->for_upward = op; //enum Boolean 
+	f->for_upward = up; //enum Boolean 
 	return f;
 }
 
@@ -404,10 +404,10 @@ STMT *make_repeatstmt (EXPR *test, STMTLIST *body)
 }
 
 //Iris add (Feature 10)
-STMT *make_forstmt (IDENT *id, EXPR *test, int op, EXPR *test2, STMT *body)
+STMT *make_forstmt (IDENT *id, EXPR *test, BOOLEAN up, EXPR *test2, STMT *body)
 {
   STMT *s = make_stmt (StmtFor_);
-  s->s.forx = make_stmtfor (make_binding (id), test, op, test2, body);
+  s->s.forx = make_stmtfor (make_binding (id), test, up, test2, body);
   return s;	
 }
 

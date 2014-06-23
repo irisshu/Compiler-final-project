@@ -558,7 +558,19 @@ ForStatement
           Fill the following rule action and implement the function in astree.c 
           if you need.
         */
-         { $$ = make_forstmt ($2, $4, $5, $6, $8);}
+         { 
+			// Iris: Direction will change to TO_ | DOWNTO_ .
+			if( $5 == TO_ )
+			{   //Iris: In struct "StmtFor", the argument is "for_upward" (Boolean type)
+				$$ = make_forstmt ($2, $4, TRUE, $6, $8);
+			}
+			else
+			{   //Iris: $5 == DOWNTO_
+				$$ = make_forstmt ($2, $4, FALSE, $6, $8);
+			}
+			
+			
+		 }
         ;
 
 Direction

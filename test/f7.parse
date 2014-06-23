@@ -7,23 +7,14 @@ main:
 	sw $fp 4($sp)
 	sw $0 8($sp)
 	move $fp $sp
-	sub $sp $sp 12
+	sub $sp $sp 4
 	ble $sp $s7 STKOV
-	li $t9 10
-	sw $t9 -8($fp)
-	li $t9 10
+	li $t9 1
 	sw $t9 -4($fp)
+	b L2
 L1:
-	lw $t0 -8($fp)
-	lw $t1 -4($fp)
-	add $t0 $t0 $t1
-	sw $t0 -8($fp)
-	lw $t9 -4($fp)
-	add $t9 $t9 1
+	li $t9 0
 	sw $t9 -4($fp)
-	li $t8 20
-	sgt $t9 $t9 $t8
-	beqz $t9 L1
 L2:
 	li $v0 0
 	move $sp $fp

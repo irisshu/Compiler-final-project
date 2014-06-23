@@ -569,7 +569,7 @@ static const yytype_uint16 yyrline[] =
      415,   416,   421,   421,   421,   421,   425,   426,   428,   430,
      432,   434,   436,   441,   451,   457,   466,   476,   477,   482,
      493,   510,   511,   513,   523,   525,   532,   534,   539,   544,
-     554,   565,   565
+     554,   577,   577
 };
 #endif
 
@@ -2221,12 +2221,24 @@ yyreduce:
   case 130:
 /* Line 1787 of yacc.c  */
 #line 561 "parse.y"
-    { (yyval.stmt_) = make_forstmt ((yyvsp[(2) - (8)].id), (yyvsp[(4) - (8)].expr_), (yyvsp[(5) - (8)].ival), (yyvsp[(6) - (8)].expr_), (yyvsp[(8) - (8)].stmt_));}
+    { 
+			// Iris: Direction will change to TO_ | DOWNTO_ .
+			if( (yyvsp[(5) - (8)].ival) == TO_ )
+			{   //Iris: In struct "StmtFor", the argument is "for_upward" (Boolean type)
+				(yyval.stmt_) = make_forstmt ((yyvsp[(2) - (8)].id), (yyvsp[(4) - (8)].expr_), TRUE, (yyvsp[(6) - (8)].expr_), (yyvsp[(8) - (8)].stmt_));
+			}
+			else
+			{   //Iris: $5 == DOWNTO_
+				(yyval.stmt_) = make_forstmt ((yyvsp[(2) - (8)].id), (yyvsp[(4) - (8)].expr_), FALSE, (yyvsp[(6) - (8)].expr_), (yyvsp[(8) - (8)].stmt_));
+			}
+			
+			
+		 }
     break;
 
 
 /* Line 1787 of yacc.c  */
-#line 2230 "parse.tab.c"
+#line 2242 "parse.tab.c"
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -2458,7 +2470,7 @@ yyreturn:
 
 
 /* Line 2050 of yacc.c  */
-#line 599 "parse.y"
+#line 611 "parse.y"
 
 
 void
